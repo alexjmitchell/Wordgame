@@ -132,6 +132,9 @@ $(document).ready(function() {
 
   currentToArray.push(...current)
 
+  console.log(currentToArray)
+  console.log(current)
+
   async function onScreen() {
     try {
       $("#word").html(`
@@ -145,4 +148,72 @@ $(document).ready(function() {
   }
 
   onScreen()
+
+  function repeat(item, times) {
+    let result = []
+    for (let i = 0; i < times; i++) {
+      result.push(item)
+    }
+    return result
+  }
+
+  var underscores = currentToArray.map(function(under) {
+    return "_"
+  })
+
+  function displayUnders() {
+    $(".underscores").html(
+      `
+    <p>${underscores.join(" ")}</p>
+    `
+    )
+  }
+
+  displayUnders()
+
+  var alphabet = "abcdefghijklmnopqrstuvwxyz"
+  let keyboard = ""
+  alphabet.split("").forEach(letter => {
+    keyboard += `<button>${letter.toUpperCase()}</button>`
+  })
+  $(".keyboard").html(keyboard)
+
+  $(".keyboard button").on("click", function(e) {
+    e.preventDefault()
+    let value = $(this)
+      .html()
+      .toLowerCase()
+
+    underscores = underscores.map(function(under, index) {
+      if (currentToArray[index] === value) {
+        return value
+      } else {
+        return under
+      }
+    })
+
+    displayUnders()
+  })
 })
+
+// let dash = []
+
+// if (currentToArray.includes(value)) {
+//   underscores = currentToArray.map(function(letter, index) {
+//     if (letter == value) {
+//       // dash.push(underscores)
+//       dash = underscores.split("")
+//       dash[index] = letter
+
+//       console.log(dash[index] + " dashindex")
+
+//       underscores = dash.join(" ")
+//       console.log(underscores + " underscores")
+//       return $(".underscores").html(underscores)
+//     } else {
+//       underscores
+//     }
+//   })
+// }
+
+// console.log(underscores)
