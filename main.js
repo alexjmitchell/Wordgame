@@ -1,16 +1,14 @@
-// $(document).ready(() => {
-//   var alphabet = "abcdefghijklmnopqrstuvwxyz"
-//   let keyboard = ""
-//   alphabet.split("").forEach(letter => {
-//     keyboard += `<button>${letter.toUpperCase()}</button>`
-//   })
+$(document).ready(function() {
+  let turns = 6
 
-//   $(".keyboard").html(keyboard)
+  $(".keyboard button").on("click", function() {
+    turns = turns - 1
 
-//   $(".keyboard button").on("click", function() {
-//     let value = $(this)
-//       .html()
-//       .toLowerCase()
-//     return value
-//   })
-// })
+    $("#turns").html(`Body Parts Left: ${turns}`)
+    // End Game
+    if (turns === 0) {
+      alert("GAME OVER")
+      turns = 6
+    }
+  })
+})

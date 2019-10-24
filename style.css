@@ -32,3 +32,19 @@ ul {
   font-size: 4rem;
   font-weight: bold;
 }
+
+.keyboard {
+  margin: auto;
+  width: 400px;
+}
+
+.keyboard button {
+  margin: 5px;
+  height: 40px;
+  width: 50px;
+  background: rgba(13, 13, 226, 0.808);
+  color: white;
+  padding: 5px;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
