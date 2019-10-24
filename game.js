@@ -3,26 +3,14 @@ var userGuesses = []
 
 function handleGamePlay(gameWordToLetters, gameBoard) {
   console.log("---> handleGamePlay")
-  $(".keyboard button").on("click", function(e) {
+  $(".keyboard").on("click", "button", function(e) {
     e.preventDefault()
 
     let value = $(this)
       .html()
       .toLowerCase()
 
-    function guess() {
-      // let guesses = ""
-      // guesses = value
-      // userGuesses.push(guesses)
-      // userGuesses = userGuesses.forEach(letter => {
-      //   guesses = `<p>${letter}</p>`
-      //   return guesses
-      // })
-
-      return $(".guesses").html(value)
-    }
-
-    guess()
+    $(".guesses").append(value)
 
     gameBoard = gameBoard.map(function(under, index) {
       if (gameWordToLetters[index] === value) {

@@ -1,6 +1,6 @@
 $(document).ready(function() {
-  let turns = 6
-
+  let turns = 10
+  $("#turns").html(`Body Parts Left: ${turns}`)
   $(".keyboard button").on("click", function() {
     turns = turns - 1
 
@@ -8,7 +8,6 @@ $(document).ready(function() {
     // End Game
     if (turns === 0) {
       alert("GAME OVER")
-      turns = 6
     }
   })
 })
